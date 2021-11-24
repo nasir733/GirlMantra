@@ -23,9 +23,11 @@ interface Props {
 
 const Home = (props: Props) => {
   const routeing = useNavigate();
-  if (!props.isLoggedIn) {
-    routeing("/login");
-  }
+  React.useEffect(() => { 
+    if(!props.isLoggedIn){
+      routeing("/login");
+    }
+  })
   return (
     <>
       <Box

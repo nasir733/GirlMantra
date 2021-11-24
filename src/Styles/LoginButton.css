@@ -1,6 +1,5 @@
-.loginButton {
+.GradientButton {
 border: 10px solid;
-  border-image-slice: 1;
   border-width: 5px;
    border-image-source:linear-gradient(94.37deg, #12C2E9 9.06%, #C471ED 52.81%, #F64F59 92.1%);;
    border-radius: 50;
@@ -9,6 +8,7 @@ border: 10px solid;
    background-color: black;
    color:white;
    font-weight: 900;
+  border-image-slice: 1;
 
 }
 

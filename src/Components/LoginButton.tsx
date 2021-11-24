@@ -6,7 +6,7 @@ interface Props {
 }
 
 const LoginButton = (props: Props) => {
-  return <button className="loginButton">{props.text}</button>;
+  return <button className="GradientButton">{props.text}</button>;
 };
 
 export default LoginButton;
