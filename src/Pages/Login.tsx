@@ -73,7 +73,7 @@ const Login = (props: Props) => {
     } else {
       auth
         .sendSignInLinkToEmail(email, {
-          url: "http://localhost:3000/login",
+          url: "https://girlmantra-8b6e4.web.app/login",
           handleCodeInApp: true,
         })
         .then(() => {
@@ -192,7 +192,7 @@ const Login = (props: Props) => {
                     type="submit"
                     mt={"10px"}
                   >
-                    SIGN UP
+                    SIGN IN
                   </chakra.button>
                 </FormControl>
               </form>
