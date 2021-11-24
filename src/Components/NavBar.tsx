@@ -1,13 +1,24 @@
 import { Box, Button, Image } from "@chakra-ui/react";
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 
 import { Flex, Spacer } from "@chakra-ui/react";
 import Logo from "../Assets/Logo";
 import LoginButton from "./LoginButton";
+import { logout } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
-interface Props {}
+interface Props {
+  isLoggedIn: boolean;
+  setLoggedIn: Dispatch<SetStateAction<boolean>>;
+}
 
 const NavBar = (props: Props) => {
+  const routing = useNavigate();
+  const logoutHandler = () => {
+    logout();
+    props.setLoggedIn(false);
+    routing("/login");
+  };
   return (
     <Box
       d={"flex"}
@@ -27,9 +38,17 @@ const NavBar = (props: Props) => {
         alignItems={"center"}
         w={"40%"}
       >
-        <a href="#">Programs</a>
-        <a href="#">SignUp</a>
-        <LoginButton text={"Log in"} />
+        {props.isLoggedIn ? (
+          <>
+            <button onClick={logoutHandler}>LogOut</button>
+          </>
+        ) : (
+          <>
+            <a href="#">Programs</a>
+            <a href="#">SignUp</a>
+            <LoginButton text={"Log in"} />
+          </>
+        )}
       </Box>
     </Box>
   );
